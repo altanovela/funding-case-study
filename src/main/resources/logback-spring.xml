@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration>
+    <springProperty name="application.name" scope="context" source="spring.application.name"/>
+    <property name="BASE_DIR"    value="/log"/>
+    <property name="LOG_FILE"    value="${BASE_DIR}/${application.name}"/>
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss:SSS z} [%t] %-5level %logger - %m%n"/>
+    
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+    
+    <root level="DEBUG">
+        <appender-ref ref="console"/>
+    </root>
+    
+</configuration>

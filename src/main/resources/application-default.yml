@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_crowdfunding
+    username: u_crowdfunding
+    password: ad82759a28f5b16f36606c5e293836a14b71c3b719370b2554fa5902921587ce
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true

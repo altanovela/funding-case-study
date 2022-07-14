@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "c45f09df-c398-4669-98bf-6c028725001d",
+		"name": "CrowdFunding-api-v1.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/funding/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1989/api/v1/funding/users?page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1989",
+					"path": [
+						"api",
+						"v1",
+						"funding",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/funding/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Teguh Sudibyantoro\",\r\n    \"dateOfBirth\": \"10/02/1991\",\r\n    \"fullAdress\": \"Jalan Pemekaran No 99\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1989/api/v1/funding/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1989",
+					"path": [
+						"api",
+						"v1",
+						"funding",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
