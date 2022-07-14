@@ -6,6 +6,7 @@
 1. [User Add](#1-user-add)
 1. [User List](#2-user-list)
 
+---
 ## Endpoints
 
 ### 1. User Add
