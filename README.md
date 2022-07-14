@@ -15,7 +15,7 @@
 
 ```bash
 Method: POST
-Type: RAW
+Type: application/json
 URL: http://localhost:1989/api/v1/funding/users
 ```
 
@@ -46,7 +46,6 @@ URL: http://localhost:1989/api/v1/funding/users
 
 ```bash
 Method: GET
-Type: 
 URL: http://localhost:1989/api/v1/funding/users
 ```
 
