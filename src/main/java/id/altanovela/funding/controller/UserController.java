@@ -16,9 +16,7 @@ import id.altanovela.funding.dao.entities.User;
 import id.altanovela.funding.model.UserReq;
 import id.altanovela.funding.model.mapper.UserReqMapper;
 import id.altanovela.funding.services.UserService;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @FundingRest("/api/v1/funding/users")
 public class UserController {
     
