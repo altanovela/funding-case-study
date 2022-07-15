@@ -1,52 +1,56 @@
-# CrowdFunding-api-v1.0
+# CrowdFunding-api-v1.0 (backoffice)
 [![Java](https://img.shields.io/badge/Java-1.8.0-red.svg?style=plastic)](https://www.oracle.com/java/technologies/)
 [![Maven](https://img.shields.io/badge/Maven-3.6.0-purple.svg?style=plastic)](https://maven.apache.org)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.1.9.RELEASE-green.svg?style=plastic)](https://spring.io/projects/spring-boot)
+[![Postgresql](https://img.shields.io/badge/PostgreSQL-13.1-9cf.svg?style=plastic)](https://www.postgresql.org/docs/13/release-13-1.html)
 
-1. [User Add](#1-user-add)
-1. [User List](#2-user-list)
+1. [Add Tenant (Joint Accounts)](#1-add-tenant)
+1. [Search Tenant](#2-search-tenant)
+1. [Add User](#3-add-user)
+1. [Search User](#4-search-user)
+1. [Add Funding Activity](#5-add-activity)
+1. [Search Funding Activities](#6-search-activities)
 
 ---
 ## Endpoints
 
-### 1. User Add
+### 1. Add Tenant
 
 ***Endpoint:***
 
 ```bash
 Method: POST
 Type: application/json
-URL: http://localhost:1989/api/v1/funding/users
+URL: http://localhost:2989/api/v1/funding/tenants
 ```
 
 ***Body:***
 
 ```js        
 {
-    "name": "Teguh Sudibyantoro",
-    "dateOfBirth": "10/02/1991",
-    "fullAdress": "Jalan Pemekaran No 99"
+    "name": "Desa Purwasari",
+    "initialBalance": 0
 }
 ```
 
 ***Response:***
 
-```js      
+```js        
 {
     "success": true,
     "errors": [],
-    "requestId": "f2f419b7-deca-4f14-a0ad-33956eb9cd78",
-    "timestamp": "2022-07-14 12:47:10 UTC"
+    "requestId": "3f49154f-c606-4ba5-a3fd-91f393247e5f",
+    "timestamp": "2022-07-15 11:59:06 UTC"
 }
 ```
 
-### 2. User List
+### 2. Search Tenant
 
 ***Endpoint:***
 
 ```bash
 Method: GET
-URL: http://localhost:1989/api/v1/funding/users
+URL: http://localhost:2989/api/v1/funding/tenants
 ```
 
 ***Query params:***
@@ -55,32 +59,92 @@ URL: http://localhost:1989/api/v1/funding/users
 | --- | ------|-------------|
 | page | 1 | Page No | 
 | pageSize | 10 | Data per Page |
-| name | Wawan | User name |
+| name | Purwasari | Tenant Name |
 
 ***Response:***
 
-```js
+```js        
 {
     "success": true,
     "pagedata": {
-        "totalCount": 3,
+        "totalCount": 1,
         "currentPage": 1,
         "pageCount": 1,
         "pageSize": 10
     },
     "data": [
         {
-            "id": 13,
-            "name": "Joko Widodo",
-            "dateOfBirth": "10/03/1992",
-            "fullAdress": "Dusun Pisang Rt 10 Rw 20"
-        },
-        {
-            "id": 2,
-            "name": "Teguh Sudibyantoro",
-            "dateOfBirth": "10/02/1991",
-            "fullAdress": "Jalan Pemekaran No 99"
-        },
+            "id": 3,
+            "name": "Desa Purwasari",
+            "fundingBalance": 0.00
+        }
+    ],
+    "errors": [],
+    "requestId": "822bee67-2cf4-4291-bb47-bede8be68f80",
+    "timestamp": "2022-07-15 11:59:25 UTC"
+}
+```
+
+### 3. Add User
+
+***Endpoint:***
+
+```bash
+Method: POST
+Type: application/json
+URL: http://localhost:2989/api/v1/funding/users
+```
+
+***Body:***
+
+```js        
+{
+    "name": "Wawan Setiawan",
+    "dateOfBirth": "10/01/1990",
+    "fullAdress": "Kompleks Asia Serasi No 100"
+}
+```
+
+***Response:***
+
+```js        
+{
+    "success": true,
+    "errors": [],
+    "requestId": "d4b7e5e0-2038-4ea4-aad1-730c25b74de3",
+    "timestamp": "2022-07-15 12:01:11 UTC"
+}
+```
+
+### 4. Search User
+
+***Endpoint:***
+
+```bash
+Method: GET
+URL: http://localhost:2989/api/v1/funding/users
+```
+
+***Query params:***
+
+| Key | Value | Description |
+| --- | ------|-------------|
+| page | 1 | Page No | 
+| pageSize | 10 | Data per Page |
+| name | Wawan | User Name |
+
+***Response:***
+
+```js        
+{
+    "success": true,
+    "pagedata": {
+        "totalCount": 1,
+        "currentPage": 1,
+        "pageCount": 1,
+        "pageSize": 10
+    },
+    "data": [
         {
             "id": 1,
             "name": "Wawan Setiawan",
@@ -89,9 +153,93 @@ URL: http://localhost:1989/api/v1/funding/users
         }
     ],
     "errors": [],
-    "requestId": "cbade3c0-44c9-4a4a-9d48-f0552a1693cc",
-    "timestamp": "2022-07-14 14:10:45 UTC"
+    "requestId": "fe635c78-373f-4e39-a309-4d1fb16f54bc",
+    "timestamp": "2022-07-15 12:01:23 UTC"
 }
 ```
+
+### 5. Add Activity
+
+***Endpoint:***
+
+```bash
+Method: POST
+Type: application/json
+URL: http://localhost:2989/api/v1/funding/activities
+```
+
+***Body:***
+
+```js        
+{
+    "tenantId": 3,
+    "userId": 1,
+    "amount": "1000000",
+    "type": "DONATE"
+}
+```
+
+***Response:***
+
+```js        
+{
+    "success": true,
+    "errors": [],
+    "requestId": "8c6ff91c-6844-4b0c-99f1-d0e9fef09ce7",
+    "timestamp": "2022-07-15 12:04:13 UTC"
+}
+```
+
+### 6. Search Activities
+
+***Endpoint:***
+
+```bash
+Method: GET
+URL: http://localhost:2989/api/v1/funding/activities
+```
+
+***Query params:***
+
+| Key | Value | Description |
+| --- | ------|-------------|
+| page | 1 | Page No | 
+| pageSize | 10 | Data per Page |
+| tenantId | 3 | Numeric Tenant Id |
+| userId | 1 | Numeric User Id |
+| startDate | 15/07/2022 | Transaction Date, format : dd/MM/yyyy |
+| endDate | 15/07/2022 | Transaction Date, format : dd/MM/yyyy |
+
+***Response:***
+
+```js        
+{
+    "success": true,
+    "pagedata": {
+        "totalCount": 1,
+        "currentPage": 1,
+        "pageCount": 1,
+        "pageSize": 10
+    },
+    "data": [
+        {
+            "tenantName": "Desa Purwasari",
+            "userName": "Wawan Setiawan",
+            "type": "DONATE",
+            "amount": 1000000.00,
+            "transactionTime": "2022-07-15 12:04:13 UTC"
+        }
+    ],
+    "errors": [],
+    "requestId": "c86fa3c4-3e13-4781-98f7-a9e5efba8a0b",
+    "timestamp": "2022-07-15 12:04:31 UTC"
+}
+```
+
 ---
+
+## Entity Diagram
+<img src="https://raw.githubusercontent.com/altanovela/funding-case-study/main/.res/table_diagram.png" width="60%"/>
+
 [Back to top](#crowdfunding-api-v10)
+
