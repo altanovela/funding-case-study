@@ -48,13 +48,13 @@ public class ActivityController {
     
     @GetMapping
     public ResponseEntity<String> getActivities(
-        @RequestParam(name = "pageSize" , defaultValue = "10") Integer size,
-        @RequestParam(name = "page"     , defaultValue = "1") Integer page,
-        @RequestParam(name = "tenantId" , required = false) Long tenantId,
-        @RequestParam(name = "userId"   , required = false) Long userId,
-        @RequestParam(name = "starDate" , required = false) 
+        @RequestParam(name = "pageSize"  , defaultValue = "10") Integer size,
+        @RequestParam(name = "page"      , defaultValue = "1") Integer page,
+        @RequestParam(name = "tenantId"  , required = false) Long tenantId,
+        @RequestParam(name = "userId"    , required = false) Long userId,
+        @RequestParam(name = "startDate" , required = false) 
             @DateTimeFormat(pattern = DATE_PATTERN) Date startDate,
-        @RequestParam(name = "endDate"  , required = false) 
+        @RequestParam(name = "endDate"   , required = false) 
             @DateTimeFormat(pattern = DATE_PATTERN) Date endDate
     ){
         return httpResponse.success(

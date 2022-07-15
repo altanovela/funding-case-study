@@ -1,5 +1,6 @@
 package id.altanovela.funding.services;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,10 @@ import id.altanovela.funding.dao.entities.FundingActivity;
 import id.altanovela.funding.dao.repositories.FundingActivityRepository;
 import id.altanovela.funding.model.ActivityDto;
 import id.altanovela.funding.services.base.BaseService;
+import id.altanovela.funding.utils.DateUtils;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class ActivityService extends BaseService {
     
@@ -33,7 +37,7 @@ public class ActivityService extends BaseService {
      */
     public Page<ActivityDto> findActivities(Integer pageSize, Integer page, Long tenantId, Long userId, Date startDate, Date endDate){
         return fundingActivityRepository.findActivities(
-            tenantId, userId, startDate, endDate, 
+            tenantId, userId, DateUtils.bod(startDate), DateUtils.eod(endDate), 
             PageRequest.of(page, pageSize, Sort.by("id").descending())
         );
     }
