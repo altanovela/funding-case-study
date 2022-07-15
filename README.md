@@ -2,6 +2,7 @@
 [![Java](https://img.shields.io/badge/Java-1.8.0-red.svg?style=plastic)](https://www.oracle.com/java/technologies/)
 [![Maven](https://img.shields.io/badge/Maven-3.6.0-purple.svg?style=plastic)](https://maven.apache.org)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.1.9.RELEASE-green.svg?style=plastic)](https://spring.io/projects/spring-boot)
+[![Postgresql](https://img.shields.io/badge/PostgreSQL-13.1-9cf.svg?style=plastic)](https://www.postgresql.org/docs/13/release-13-1.html)
 
 1. [Add Tenant (Joint Accounts)](#1-add-tenant)
 1. [Search Tenant](#2-search-tenant)
@@ -58,7 +59,7 @@ URL: http://localhost:2989/api/v1/funding/tenants
 | --- | ------|-------------|
 | page | 1 | Page No | 
 | pageSize | 10 | Data per Page |
-| name | Purwasari | Tenant name |
+| name | Purwasari | Tenant Name |
 
 ***Response:***
 
@@ -130,7 +131,7 @@ URL: http://localhost:2989/api/v1/funding/users
 | --- | ------|-------------|
 | page | 1 | Page No | 
 | pageSize | 10 | Data per Page |
-| name | Purwasari | Tenant name |
+| name | Wawan | User Name |
 
 ***Response:***
 
@@ -206,8 +207,8 @@ URL: http://localhost:2989/api/v1/funding/activities
 | pageSize | 10 | Data per Page |
 | tenantId | 3 | Numeric Tenant Id |
 | userId | 1 | Numeric User Id |
-| startDate | Purwasari | Transaction Date, format : dd/MM/yyyy |
-| endDate | Purwasari | Transaction Date, format : dd/MM/yyyy |
+| startDate | 15/07/2022 | Transaction Date, format : dd/MM/yyyy |
+| endDate | 15/07/2022 | Transaction Date, format : dd/MM/yyyy |
 
 ***Response:***
 
