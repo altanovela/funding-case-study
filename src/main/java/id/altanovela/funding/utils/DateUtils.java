@@ -1,10 +1,24 @@
 package id.altanovela.funding.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class DateUtils {
 
+    public static Date toDate(String pattern, String date) {
+        try {
+            return new SimpleDateFormat(pattern).parse(date);
+        } catch (ParseException e) {
+            log.error("ERR", e);
+        }
+        return null;
+    }
+    
     public static Date bod(Date date) {
         return ddt(date, 00, 00, 01);
     }
