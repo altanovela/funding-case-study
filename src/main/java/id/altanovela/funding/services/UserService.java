@@ -8,36 +8,51 @@ import org.springframework.stereotype.Service;
 
 import id.altanovela.funding.dao.entities.User;
 import id.altanovela.funding.dao.repositories.UserRepository;
+import id.altanovela.funding.services.base.BaseService;
 
 @Service
-public class UserService {
-
+public class UserService extends BaseService {
+    
     @Autowired
     UserRepository userRepository;
     
     /**
-     * Find Users containing a Name
-     * @param {@link Integer}
-     * @param {@link Integer}
-     * @param {@link String}
+     * <p>
+     * Find Users contains a Name
+     * </p>
+     * @param  {@link Integer}
+     * @param  {@link Integer}
+     * @param  {@link String}
      * @return {@link Page}<{@link User}>
      */
     public Page<User> findUsers(Integer pageSize, Integer page, String name){
         return userRepository.findByNameContaining(
-                name, PageRequest.of(page, pageSize, Sort.by("id").descending())
+            name, PageRequest.of(page, pageSize, Sort.by("id").descending())
         );
     }
     
     /**
-     * Add User
-     * @param {@link user}
-     * @return
+     * <p>
+     * Find By User Id
+     * </p>
+     * @param  {@link Long}
+     * @return {@link User} 
+     */
+    public User findById(Long userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+    
+    /**
+     * <p>
+     * Add User, return {@link User} with Id, 
+     * and <b>null</b> if it's fail.
+     * </p>
+     * @param  {@link User}
+     * @return {@link User}
      */
     public User addUser(User user){
-        User result = userRepository.save(user);
-        if(null != result && result.getId() > 0) {
-            return result;
-        }
-        return null;
+        return geto (
+            userRepository.save(user)
+        );
     }
 }

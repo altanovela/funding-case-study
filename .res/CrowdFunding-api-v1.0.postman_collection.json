@@ -6,41 +6,13 @@
 	},
 	"item": [
 		{
-			"name": "api/funding/users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:1989/api/v1/funding/users?page=1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "1989",
-					"path": [
-						"api",
-						"v1",
-						"funding",
-						"users"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "1"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "api/funding/users",
+			"name": "Add Tenant",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Teguh Sudibyantoro\",\r\n    \"dateOfBirth\": \"10/02/1991\",\r\n    \"fullAdress\": \"Jalan Pemekaran No 99\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Desa Purwasari\",\r\n    \"initialBalance\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,17 +20,145 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1989/api/v1/funding/users",
+					"raw": "http://localhost:2989/api/v1/funding/tenants",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "1989",
+					"port": "2989",
+					"path": [
+						"api",
+						"v1",
+						"funding",
+						"tenants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Tenant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:2989/api/v1/funding/tenants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2989",
+					"path": [
+						"api",
+						"v1",
+						"funding",
+						"tenants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Wawan Setiawan\",\r\n    \"dateOfBirth\": \"10/01/1990\",\r\n    \"fullAdress\": \"Kompleks Asia Serasi No 100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2989/api/v1/funding/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2989",
 					"path": [
 						"api",
 						"v1",
 						"funding",
 						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:2989/api/v1/funding/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2989",
+					"path": [
+						"api",
+						"v1",
+						"funding",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Activity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 3,\r\n    \"userId\": 1,\r\n    \"amount\": \"1000000\",\r\n    \"type\": \"DONATE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2989/api/v1/funding/activities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2989",
+					"path": [
+						"api",
+						"v1",
+						"funding",
+						"activities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Activities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:2989/api/v1/funding/activities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2989",
+					"path": [
+						"api",
+						"v1",
+						"funding",
+						"activities"
 					]
 				}
 			},

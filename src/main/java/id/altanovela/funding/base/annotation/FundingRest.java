@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Retention(RUNTIME)
 @RestController
 @RequestMapping(
-        produces = MediaType.APPLICATION_JSON_VALUE
+    produces = MediaType.APPLICATION_JSON_VALUE
 )
 public @interface FundingRest {
     @AliasFor(annotation = RequestMapping.class)

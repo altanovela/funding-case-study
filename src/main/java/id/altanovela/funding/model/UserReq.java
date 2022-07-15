@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserReq {
     
     @NotBlank
-    @Size(max = 30)
+    @Size(max = 30, min = 3)
     private String name;
     
     private String dateOfBirth;
@@ -30,10 +30,13 @@ public class UserReq {
     @JsonIgnore
     private Date dateOfBirthDate;
     
-    @AssertTrue(message = "Date Format is invalid")
+    @AssertTrue(message = "Date is invalid, date format dd/MM/yyyy")
     private boolean isDateOfBirth() {
         try {
             this.dateOfBirthDate = DateUtils.parseDateStrictly(dateOfBirth, "dd/MM/yyyy");
+            if(dateOfBirthDate.after(new Date())) {
+                return false;
+            }
             return true;
         } catch (Exception e) {
             log.error(e.getMessage());
