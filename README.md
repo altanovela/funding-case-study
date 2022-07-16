@@ -6,6 +6,19 @@
 
 Hi this is Crowd Funding simulation application, it use Tenant as Joint Account which record Balance Summary. The Funding Activities scope is within a Tenant, so please create New Tenant before doing Transaction (Donate or Withdraw).
 
+Keywords :
+1. [Database Diagram](#entity-diagram)
+1. [Postman Collection](https://github.com/altanovela/funding-case-study/tree/main/.res)
+1. [Test Unit](https://github.com/altanovela/funding-case-study/tree/main/src/test/java/id/altanovela/funding)
+1. [API Endpoints](#endpoints)
+
+<hr style="border:0.5px solid gray">
+
+### Entity Diagram :
+<img src="https://raw.githubusercontent.com/altanovela/funding-case-study/main/.res/table_diagram.png" width="60%"/>
+
+### Endpoints :
+
 1. [Add Tenant (Joint Accounts)](#1-add-tenant)
 1. [Search Tenant](#2-search-tenant)
 1. [Add User](#3-add-user)
@@ -13,8 +26,7 @@ Hi this is Crowd Funding simulation application, it use Tenant as Joint Account 
 1. [Add Funding Activity](#5-add-activity)
 1. [Search Funding Activities](#6-search-activities)
 
----
-## Endpoints
+--
 
 ### 1. Add Tenant
 
@@ -238,10 +250,10 @@ URL: http://localhost:2989/api/v1/funding/activities
 }
 ```
 
----
+### Contributors
+| Name | Email | Role |
+| ------------ | ------------ | ------------ |
+| Rio Bastian | altanovela@gmail.com | Authors |
 
-## Entity Diagram
-<img src="https://raw.githubusercontent.com/altanovela/funding-case-study/main/.res/table_diagram.png" width="60%"/>
-
-[Back to top](#crowdfunding-api-v10)
+[Back to top](#crowdfunding-api-v10-backoffice)
 
