@@ -4,6 +4,8 @@
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.1.9.RELEASE-green.svg?style=plastic)](https://spring.io/projects/spring-boot)
 [![Postgresql](https://img.shields.io/badge/PostgreSQL-13.1-9cf.svg?style=plastic)](https://www.postgresql.org/docs/13/release-13-1.html)
 
+Hi this is Crowd Funding simulation application, it use Tenant as Joint Account which record Balance Summary. The Funding Activities scope is within a Tenant, so please create New Tenant before doing Transaction (Donate or Withdraw).
+
 1. [Add Tenant (Joint Accounts)](#1-add-tenant)
 1. [Search Tenant](#2-search-tenant)
 1. [Add User](#3-add-user)
