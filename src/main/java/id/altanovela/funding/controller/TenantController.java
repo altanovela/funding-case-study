@@ -21,9 +21,6 @@ import id.altanovela.funding.services.TenantService;
 public class TenantController {
     
     @Autowired
-    private HttpResponse httpResponse;
-    
-    @Autowired
     private TenantService tenantService;
     
     @GetMapping
@@ -32,7 +29,7 @@ public class TenantController {
         @RequestParam(name = "page"     , defaultValue = "1" ) Integer page,
         @RequestParam(name = "name"     , defaultValue = ""  ) String name
     ){
-        return httpResponse.success(
+        return HttpResponse.success(
             new ResponseDto<FundingTenant>(
                 tenantService.findTenants(size, page < 1 ? 0 : --page, name)
             )
@@ -40,15 +37,15 @@ public class TenantController {
     }
     
     @PostMapping
-    public ResponseEntity<String> addUsers(
+    public ResponseEntity<String> addTenants(
         @Valid @RequestBody TenantReq payload
     ) {
         FundingTenant result = tenantService.addTenant(
             TenantReqMapper.mapper(payload)
         );
         if(null != result) {
-            return httpResponse.success("Tenant successfully saved.");
+            return HttpResponse.success();
         }
-        return httpResponse.error("Tenant failed to saved.");
+        return HttpResponse.error();
     }
 }

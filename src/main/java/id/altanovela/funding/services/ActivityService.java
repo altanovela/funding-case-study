@@ -3,6 +3,8 @@ package id.altanovela.funding.services;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -50,6 +52,7 @@ public class ActivityService extends BaseService {
      * @param  {@link FundingActivity}
      * @return {@link FundingActivity}
      */
+    @Transactional
     public FundingActivity addActivity(FundingActivity activity) {
         return geto (
             fundingActivityRepository.save(activity)

@@ -3,6 +3,7 @@ package id.altanovela.funding.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +22,6 @@ import id.altanovela.funding.services.UserService;
 public class UserController {
     
     @Autowired
-    private HttpResponse httpResponse;
-    
-    @Autowired
     UserService userService;
     
     @GetMapping
@@ -32,7 +30,8 @@ public class UserController {
         @RequestParam(name = "page"     , defaultValue = "1" ) Integer page,
         @RequestParam(name = "name"     , defaultValue = ""  ) String name
     ) {
-        return httpResponse.success(
+        
+        return HttpResponse.success(
             new ResponseDto<User>(
                 userService.findUsers(size, page < 1 ? 0 : --page, name)
             )
@@ -47,9 +46,9 @@ public class UserController {
             UserReqMapper.mapper(payload)
         );
         if(null != result) {
-            return httpResponse.success("User successfully saved.");
+            return HttpResponse.success();
         }
-        return httpResponse.error("User failed to saved.");
+        return HttpResponse.error();
     }
     
 }

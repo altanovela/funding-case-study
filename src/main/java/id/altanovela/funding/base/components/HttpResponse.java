@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
@@ -13,22 +12,17 @@ import org.springframework.validation.ObjectError;
 import id.altanovela.funding.base.dto.ResponseDto;
 import id.altanovela.funding.base.dto.ResponseDto.Error;
 
-@Component
 public class HttpResponse {
     
-    public ResponseEntity<String> success() {
-        return new ResponseEntity<String>(new ResponseDto<String>().toString(), HttpStatus.OK);
+    public static ResponseEntity<String> success() {
+        return new ResponseEntity<String>(new ResponseDto<String>(Boolean.TRUE).toString(), HttpStatus.OK);
     }
     
-    public ResponseEntity<String> success(String message) {
-        return new ResponseEntity<String>(new ResponseDto<String>(message, Boolean.TRUE).toString(), HttpStatus.OK);
+    public static ResponseEntity<String> error() {
+        return new ResponseEntity<String>(new ResponseDto<String>(Boolean.FALSE).toString(), HttpStatus.OK);
     }
     
-    public ResponseEntity<String> error(String message) {
-        return new ResponseEntity<String>(new ResponseDto<String>(message, Boolean.FALSE).toString(), HttpStatus.OK);
-    }
-    
-    public ResponseEntity error(BindingResult binding) {
+    public static ResponseEntity error(BindingResult binding) {
         List<Error> errorList = new ArrayList<>();
         if(binding.hasErrors()) {
             if(null != binding.getFieldErrors()) {
@@ -58,15 +52,15 @@ public class HttpResponse {
         );
     }
     
-    public ResponseEntity<String> error(ResponseDto<?> response, HttpStatus httpStatus) {
+    public static ResponseEntity<String> error(ResponseDto<?> response, HttpStatus httpStatus) {
         return new ResponseEntity<String>(response.toString(), httpStatus);
     }
     
-    public ResponseEntity<String> success(ResponseDto<?> response) {
+    public static ResponseEntity<String> success(ResponseDto<?> response) {
         return new ResponseEntity<String>(response.toString(), HttpStatus.OK);
     }
     
-    public ResponseEntity<String> custom(ResponseDto<?> response, HttpStatus httpStatus) {
+    public static ResponseEntity<String> custom(ResponseDto<?> response, HttpStatus httpStatus) {
         return new ResponseEntity<String>(response.toString(), httpStatus);
     }
 }

@@ -36,10 +36,10 @@ public class ResponseDto<T> {
     private Date timestamp;
     
     public ResponseDto() {
-        this.success = true;
+        this.success = Boolean.TRUE;
     }
     
-    public ResponseDto(String message, Boolean success) {
+    public ResponseDto(Boolean success) {
         this.success = success;
     }
     
@@ -55,7 +55,7 @@ public class ResponseDto<T> {
     
     public static <T> ResponseDto<T> error(List<Error> errs) {
         ResponseDto<T> response = new ResponseDto<>();
-        response.setSuccess(Boolean.TRUE);
+        response.setSuccess(Boolean.FALSE);
         response.setErrors(errs);
         return response;
     }

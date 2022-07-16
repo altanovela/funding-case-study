@@ -35,9 +35,6 @@ public class ActivityController {
     private static final String DATE_PATTERN = "dd/MM/yyyy";
     
     @Autowired
-    private HttpResponse httpResponse;
-    
-    @Autowired
     private UserService userService;
     
     @Autowired
@@ -57,7 +54,7 @@ public class ActivityController {
         @RequestParam(name = "endDate"   , required = false) 
             @DateTimeFormat(pattern = DATE_PATTERN) Date endDate
     ){
-        return httpResponse.success(
+        return HttpResponse.success(
             new ResponseDto<ActivityDto>(
                 activityService.findActivities(size, page < 1 ? 0 : --page, tenantId, userId, startDate, endDate)
             )
@@ -105,7 +102,7 @@ public class ActivityController {
         }
         
         if(bindingResult.hasErrors()) {
-            return httpResponse.error(bindingResult);
+            return HttpResponse.error(bindingResult);
         }
         
         // Set References
@@ -116,8 +113,8 @@ public class ActivityController {
             ActivityReqMapper.mapper(activityReq)
         );
         if(null != result) {
-            return httpResponse.success("Activity successfully saved.");
+            return HttpResponse.success();
         }
-        return httpResponse.error("Activity failed to saved.");
+        return HttpResponse.error();
     }
 }

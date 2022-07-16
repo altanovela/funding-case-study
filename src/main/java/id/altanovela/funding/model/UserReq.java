@@ -24,6 +24,7 @@ public class UserReq {
     
     private String dateOfBirth;
     
+    @NotBlank
     @Size(max = 300)
     private String fullAdress;
     
