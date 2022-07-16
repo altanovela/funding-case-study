@@ -7,10 +7,10 @@
 Hi this is Crowd Funding simulation application, it use Tenant as Joint Account which record Balance Summary. The Funding Activities scope is within a Tenant, so please create New Tenant before doing Transaction (Donate or Withdraw).
 
 Keywords :
-1. [Database Diagram](#entity-diagram)
+1. [Database Diagram](#entity-diagram-)
 1. [Postman Collection](https://github.com/altanovela/funding-case-study/tree/main/.res)
 1. [Test Unit](https://github.com/altanovela/funding-case-study/tree/main/src/test/java/id/altanovela/funding)
-1. [API Endpoints](#endpoints)
+1. [API Endpoints](#endpoints-)
 
 <hr style="border:0.5px solid gray">
 
