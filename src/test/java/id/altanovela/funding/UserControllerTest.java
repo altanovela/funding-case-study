@@ -1,4 +1,4 @@
-package id.altanovela.Funding;
+package id.altanovela.funding;
 
 import java.util.ArrayList;
 import java.util.Date;

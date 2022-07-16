@@ -1,6 +1,5 @@
 package id.altanovela.funding.services;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.transaction.Transactional;
@@ -16,9 +15,7 @@ import id.altanovela.funding.dao.repositories.FundingActivityRepository;
 import id.altanovela.funding.model.ActivityDto;
 import id.altanovela.funding.services.base.BaseService;
 import id.altanovela.funding.utils.DateUtils;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Service
 public class ActivityService extends BaseService {
     

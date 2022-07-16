@@ -1,4 +1,4 @@
-package id.altanovela.Funding;
+package id.altanovela.funding;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
